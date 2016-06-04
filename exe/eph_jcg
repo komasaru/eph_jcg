@@ -1,0 +1,36 @@
+#!/usr/bin/env ruby
+
+require "eph_jcg"
+
+e = EphJcg.new(ARGV)
+exit unless e
+p e.jst, e.utc
+e.calc_all
+p e.sun_ra, e.sun_dec, e.sun_dist
+p e.moon_ra, e.moon_dec, e.moon_hp
+p e.r, e.eps
+p e.sun_h, e.moon_h
+p e.sun_sd, e.moon_sd
+p e.sun_lambda, e.sun_beta
+p e.moon_lambda, e.moon_beta
+p e.lambda_s_m
+e.display_all
+# Calculation for each
+#e.calc_sun_ra;      p e.sun_ra
+#e.calc_sun_dec;     p e.sun_dec
+#e.calc_sun_dist;    p e.sun_dist
+#e.calc_moon_ra;     p e.moon_ra
+#e.calc_moon_dec;    p e.moon_dec
+#e.calc_moon_hp;     p e.moon_hp
+#e.calc_r;           p e.r
+#e.calc_eps;         p e.eps
+#e.calc_sun_h;       p e.sun_h
+#e.calc_moon_h;      p e.moon_h
+#e.calc_sun_sd;      p e.sun_sd
+#e.calc_moon_sd;     p e.moon_sd
+#e.calc_sun_lambda;  p e.sun_lambda
+#e.calc_sun_beta;    p e.sun_beta
+#e.calc_moon_lambda; p e.moon_lambda
+#e.calc_moon_beta;   p e.moon_beta
+#e.calc_lambda_s_m;  p e.lambda_s_m
+
