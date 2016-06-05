@@ -20,69 +20,63 @@ Or install it yourself as:
 
 ### Instantiation
 
-``` ruby
-require 'eph_jcg'
-
-obj = EphJcg.new
-obj = EphJcg.new("20160603")
-obj = EphJcg.new("20160603123059")
-```
+    require 'eph_jcg'
+    
+    obj = EphJcg.new
+    obj = EphJcg.new("20160603")
+    obj = EphJcg.new("20160603123059")
 
 ### Calculation
 
-``` ruby
-obj.calc_all
-
-# Otherwise
-obj.calc_sun_ra
-obj.calc_sun_dec
-obj.calc_sun_dist
-obj.calc_moon_ra
-obj.calc_moon_dec
-obj.calc_moon_hp
-obj.calc_r
-obj.calc_eps
-obj.calc_sun_h
-obj.calc_moon_h
-obj.calc_sun_sd
-obj.calc_moon_sd
-obj.calc_sun_lambda
-obj.calc_sun_beta
-obj.calc_moon_lambda
-obj.calc_moon_beta
-obj.calc_lambda_s_m
-```
+    obj.calc_all
+    
+    # Otherwise
+    obj.calc_sun_ra
+    obj.calc_sun_dec
+    obj.calc_sun_dist
+    obj.calc_moon_ra
+    obj.calc_moon_dec
+    obj.calc_moon_hp
+    obj.calc_r
+    obj.calc_eps
+    obj.calc_sun_h
+    obj.calc_moon_h
+    obj.calc_sun_sd
+    obj.calc_moon_sd
+    obj.calc_sun_lambda
+    obj.calc_sun_beta
+    obj.calc_moon_lambda
+    obj.calc_moon_beta
+    obj.calc_lambda_s_m
 
 ### Getting values
 
-``` ruby
-obj.display_all
-
-# Otherwise
-p obj.jst
-p obj.utc
-p obj.sun_ra
-p obj.sun_dec
-p obj.sun_dist
-p obj.moon_ra
-p obj.moon_dec
-p obj.moon_hp
-p obj.r
-p obj.eps
-p obj.sun_h
-p obj.moon_h
-p obj.sun_sd
-p obj.moon_sd
-p obj.sun_lambda
-p obj.sun_beta
-p obj.moon_lambda
-p obj.moon_beta
-p obj.lambda_s_m
-
-# etc...
-p obj.hour2hms(obj.sun_ra)
-p obj.deg2dms(obj.sun_dec)
-```
+    obj.display_all
+    
+    # Otherwise
+    p obj.jst
+    p obj.utc
+    p obj.sun_ra
+    p obj.sun_dec
+    p obj.sun_dist
+    p obj.moon_ra
+    p obj.moon_dec
+    p obj.moon_hp
+    p obj.r
+    p obj.eps
+    p obj.sun_h
+    p obj.moon_h
+    p obj.sun_sd
+    p obj.moon_sd
+    p obj.sun_lambda
+    p obj.sun_beta
+    p obj.moon_lambda
+    p obj.moon_beta
+    p obj.lambda_s_m
+    
+    # etc...
+    p obj.hour2hms(obj.sun_ra)
+    p obj.deg2dms(obj.sun_dec)
 
 ## Development
 
