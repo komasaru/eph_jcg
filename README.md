@@ -78,6 +78,10 @@ p obj.sun_beta
 p obj.moon_lambda
 p obj.moon_beta
 p obj.lambda_s_m
+
+# etc...
+p obj.hour2hms(obj.sun_ra)
+p obj.deg2dms(obj.sun_dec)
 ```
 
 ## Development
