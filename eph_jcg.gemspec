@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Ephemeris calculation tool by JCG method.}
   spec.description   = %q{EphJcg is a ephemeris calculation tool by JCG method.}
-  spec.homepage      = "https://github.com/komasaru/EphJcg"
+  spec.homepage      = "https://github.com/komasaru/eph_jcg"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
