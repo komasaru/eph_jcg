@@ -198,6 +198,16 @@ describe EphJcg::Ephemeris do
     end
   end
 
+  context "#hour2hms" do
+    subject { e.hour2hms(2.78410892) }
+    it { expect(subject).to eq "   2 h 47 m 02.792 s" }
+  end
+
+  context "#deg2dms" do
+    subject { e.deg2dms(16.10315728) }
+    it { expect(subject).to eq "  16 ° 06 ′ 11.366 ″" }
+  end
+
   context "#calc_all" do
     subject { e.calc_all }
     it do
@@ -323,16 +333,6 @@ describe EphJcg::Ephemeris do
       )
     end
     it { expect(subject).to be_within(1.0e-8).of(36.01245009) }
-  end
-
-  context "#hour2hms" do
-    subject { e.send(:hour2hms, 2.78410892) }
-    it { expect(subject).to eq "   2 h 47 m 02.792 s" }
-  end
-
-  context "#deg2dms" do
-    subject { e.send(:deg2dms, 16.10315728) }
-    it { expect(subject).to eq "  16 ° 06 ′ 11.366 ″" }
   end
 end
 

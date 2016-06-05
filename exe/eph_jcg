@@ -14,6 +14,8 @@ p e.sun_sd, e.moon_sd
 p e.sun_lambda, e.sun_beta
 p e.moon_lambda, e.moon_beta
 p e.lambda_s_m
+p e.hour2hms(e.sun_ra)
+p e.deg2dms(e.sun_dec)
 e.display_all
 # Calculation for each
 #e.calc_sun_ra;      p e.sun_ra

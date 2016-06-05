@@ -182,44 +182,76 @@ module EphJcg
     end
 
     #=========================================================================
+    # 99.999h -> 99h99m99s 変換
+    #
+    # @param:  hour
+    # @return: "99 h 99 m 99.999 s"
+    #=========================================================================
+    def hour2hms(hour)
+      h   = hour.to_i
+      h_r = hour - h
+      m   = (h_r * 60).to_i
+      m_r = h_r * 60 - m
+      s   = m_r * 60
+      return sprintf(" %3d h %02d m %06.3f s", h, m, s)
+    end
+
+    #=========================================================================
+    # 99.999° -> 99°99′99″ 変換
+    #
+    # @param:  deg
+    # @return: "99 ° 99 ′ 99.999 ″"
+    #=========================================================================
+    def deg2dms(deg)
+      pm  = deg < 0 ? "-" : " "
+      deg *= -1 if deg < 0
+      d   = deg.to_i
+      d_r = deg - d
+      m   = (d_r * 60).to_i
+      m_r = d_r * 60 - m
+      s   = m_r * 60
+      return sprintf("%4s ° %02d ′ %06.3f ″", "#{pm}#{d}", m, s)
+    end
+
+    #=========================================================================
     # 結果出力
     #=========================================================================
     def display_all
       str =  "[ JST: #{Time.at(@jst).strftime("%Y-%m-%d %H:%M:%S")},"
       str << "  UTC: #{Time.at(@utc).strftime("%Y-%m-%d %H:%M:%S")} ]\n"
-      str << sprintf("  SUN    R.A. = %12.8f h",    @sun_ra  )
-      str << sprintf("  (= %s)\n",         hour2hms(@sun_ra  ))
-      str << sprintf("  SUN    DEC. = %12.8f °",    @sun_dec )
-      str << sprintf("  (= %s)\n",          deg2dms(@sun_dec ))
-      str << sprintf("  SUN   DIST. = %12.8f AU\n", @sun_dist)
-      str << sprintf("  SUN     hG. = %12.8f h",    @sun_h   )
-      str << sprintf("  (= %s)\n",         hour2hms(@sun_h   ))
-      str << sprintf("  SUN    S.D. = %12.8f ′",    @sun_sd  )
-      str << sprintf("  (= %s)\n",          deg2dms(@sun_sd / 60.0))
-      str << sprintf("  MOON   R.A. = %12.8f h",    @moon_ra )
-      str << sprintf("  (= %s)\n",         hour2hms(@moon_ra ))
-      str << sprintf("  MOON   DEC. = %12.8f °",    @moon_dec)
-      str << sprintf("  (= %s)\n",          deg2dms(@moon_dec))
-      str << sprintf("  MOON   H.P. = %12.8f °",    @moon_hp )
-      str << sprintf("  (= %s)\n",          deg2dms(@moon_hp ))
-      str << sprintf("  MOON    hG. = %12.8f h",    @moon_h  )
-      str << sprintf("  (= %s)\n",         hour2hms(@moon_h  ))
-      str << sprintf("  MOON   S.D. = %12.8f ′",    @moon_sd )
-      str << sprintf("  (= %s)\n",          deg2dms(@moon_sd / 60.0))
-      str << sprintf("           R  = %12.8f h",    @r       )
-      str << sprintf("  (= %s)\n",         hour2hms(@r       ))
-      str << sprintf("         EPS. = %12.8f °",    @eps     )
-      str << sprintf("  (= %s)\n",          deg2dms(@eps     ))
+      str << sprintf("  SUN    R.A. = %12.8f h",      @sun_ra   )
+      str << sprintf("  (= %s)\n",           hour2hms(@sun_ra  ))
+      str << sprintf("  SUN    DEC. = %12.8f °",      @sun_dec  )
+      str << sprintf("  (= %s)\n",            deg2dms(@sun_dec ))
+      str << sprintf("  SUN   DIST. = %12.8f AU\n",   @sun_dist )
+      str << sprintf("  SUN     hG. = %12.8f h",      @sun_h    )
+      str << sprintf("  (= %s)\n",           hour2hms(@sun_h   ))
+      str << sprintf("  SUN    S.D. = %12.8f ′",      @sun_sd   )
+      str << sprintf("  (= %s)\n",      deg2dms(@sun_sd / 60.0 ))
+      str << sprintf("  MOON   R.A. = %12.8f h",      @moon_ra  )
+      str << sprintf("  (= %s)\n",           hour2hms(@moon_ra ))
+      str << sprintf("  MOON   DEC. = %12.8f °",      @moon_dec )
+      str << sprintf("  (= %s)\n",            deg2dms(@moon_dec))
+      str << sprintf("  MOON   H.P. = %12.8f °",      @moon_hp  )
+      str << sprintf("  (= %s)\n",            deg2dms(@moon_hp ))
+      str << sprintf("  MOON    hG. = %12.8f h",      @moon_h   )
+      str << sprintf("  (= %s)\n",           hour2hms(@moon_h  ))
+      str << sprintf("  MOON   S.D. = %12.8f ′",      @moon_sd  )
+      str << sprintf("  (= %s)\n",      deg2dms(@moon_sd / 60.0))
+      str << sprintf("           R  = %12.8f h",      @r        )
+      str << sprintf("  (= %s)\n",           hour2hms(@r       ))
+      str << sprintf("         EPS. = %12.8f °",      @eps      )
+      str << sprintf("  (= %s)\n",            deg2dms(@eps     ))
       str << "  ---\n"
-      str << sprintf("  SUN  LAMBDA =%13.8f °",    @sun_lambda )
+      str << sprintf("  SUN  LAMBDA =%13.8f °",    @sun_lambda  )
       str << sprintf("  (=%s)\n",          deg2dms(@sun_lambda ))
-      str << sprintf("  SUN    BETA =%13.8f °",    @sun_beta   )
+      str << sprintf("  SUN    BETA =%13.8f °",    @sun_beta    )
       str << sprintf("  (=%s)\n",          deg2dms(@sun_beta   ))
-      str << sprintf("  MOON LAMBDA =%13.8f °",    @moon_lambda)
+      str << sprintf("  MOON LAMBDA =%13.8f °",    @moon_lambda )
       str << sprintf("  (=%s)\n",          deg2dms(@moon_lambda))
-      str << sprintf("  MOON   BETA =%13.8f °",    @moon_beta  )
+      str << sprintf("  MOON   BETA =%13.8f °",    @moon_beta   )
       str << sprintf("  (=%s)\n",          deg2dms(@moon_beta  ))
-      str << sprintf("  DIFF LAMBDA =%13.8f °\n",  @lambda_s_m )
+      str << sprintf("  DIFF LAMBDA =%13.8f °\n",  @lambda_s_m  )
       puts str
     end
 
@@ -403,37 +435,37 @@ module EphJcg
       return sun_lambda - moon_lambda
     end
 
-    #=========================================================================
-    # 99.999h -> 99h99m99s 変換
-    #
-    #   @param:  hour
-    #   @return: "99 h 99 m 99.999 s"
-    #=========================================================================
-    def hour2hms(hour)
-      h   = hour.to_i
-      h_r = hour - h
-      m   = (h_r * 60).to_i
-      m_r = h_r * 60 - m
-      s   = m_r * 60
-      return sprintf(" %3d h %02d m %06.3f s", h, m, s)
-    end
+    # #=========================================================================
+    # # 99.999h -> 99h99m99s 変換
+    # #
+    # # @param:  hour
+    # # @return: "99 h 99 m 99.999 s"
+    # #=========================================================================
+    # def hour2hms(hour)
+    #   h   = hour.to_i
+    #   h_r = hour - h
+    #   m   = (h_r * 60).to_i
+    #   m_r = h_r * 60 - m
+    #   s   = m_r * 60
+    #   return sprintf(" %3d h %02d m %06.3f s", h, m, s)
+    # end
 
-    #=========================================================================
-    # 99.999° -> 99°99′99″ 変換
-    #
-    # @param:  deg
-    # @return: "99 ° 99 ′ 99.999 ″"
-    #=========================================================================
-    def deg2dms(deg)
-      pm  = deg < 0 ? "-" : " "
-      deg *= -1 if deg < 0
-      d   = deg.to_i
-      d_r = deg - d
-      m   = (d_r * 60).to_i
-      m_r = d_r * 60 - m
-      s   = m_r * 60
-      return sprintf("%4s ° %02d ′ %06.3f ″", "#{pm}#{d}", m, s)
-    end
+    # #=========================================================================
+    # # 99.999° -> 99°99′99″ 変換
+    # #
+    # # @param:  deg
+    # # @return: "99 ° 99 ′ 99.999 ″"
+    # #=========================================================================
+    # def deg2dms(deg)
+    #   pm  = deg < 0 ? "-" : " "
+    #   deg *= -1 if deg < 0
+    #   d   = deg.to_i
+    #   d_r = deg - d
+    #   m   = (d_r * 60).to_i
+    #   m_r = d_r * 60 - m
+    #   s   = m_r * 60
+    #   return sprintf("%4s ° %02d ′ %06.3f ″", "#{pm}#{d}", m, s)
+    # end
   end
 end
 
