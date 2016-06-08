@@ -1,5 +1,31 @@
 # EphJcg
 
+## Introduction
+
+This is the gem library which calculates ephemeris datas by JCG(Japan Coast Guard) method.
+
+### Computable imtes
+
+* Sun
+  - R.A.(= Right Ascension, Alpha)
+  - Dec.(= Declination, Delta)
+  - Dist.(= Distance)
+  - h(= Greenwich hour angle)
+  - S.D.(= Apparent Semidiameter)
+  - Lambda(= Ecliptic longitude)
+  - Beta(= Ecliptic latitude)
+* Moon
+  - R.A.(= Right Ascension, Alpha)
+  - Dec.(= Declination, Delta)
+  - H.P.(= Horizontal Parallax)
+  - h(= Greenwich hour angle)
+  - S.D.(= Apparent Semidiameter)
+  - Lambda(= Ecliptic longitude)
+  - Beta(= Ecliptic latitude)
+* R
+* Epsilon(= Mean obliquity of the ecliptic)
+* Lambda difference between Sun and Moon
+
 ## Installation
 
 Add this line to your application's Gemfile:
