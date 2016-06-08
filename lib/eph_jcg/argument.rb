@@ -1,7 +1,7 @@
 module EphJcg
   class Argument
-    def initialize(args)
-      @arg = args.shift
+    def initialize(arg)
+      @arg = arg
     end
 
     #=========================================================================
@@ -13,12 +13,6 @@ module EphJcg
     # @return: jst (UNIX time)
     #=========================================================================
     def get_jst
-      unless @arg
-        now = Time.now
-        return Time.new(
-          now.year, now.month, now.day, now.hour, now.min, now.sec
-        ).to_f
-      end
       (puts MSG_ERR_1; return 0) unless @arg =~ /^\d{8}$|^\d{14}$/
       year, month, day = @arg[ 0, 4].to_i, @arg[ 4, 2].to_i, @arg[ 6, 2].to_i
       hour, min,   sec = @arg[ 8, 2].to_i, @arg[10, 2].to_i, @arg[12, 2].to_i

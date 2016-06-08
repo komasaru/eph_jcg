@@ -2,7 +2,7 @@
 
 require "eph_jcg"
 
-e = EphJcg.new(ARGV)
+e = EphJcg.new(ARGV[0])
 exit unless e
 p e.jst, e.utc
 e.calc_all
