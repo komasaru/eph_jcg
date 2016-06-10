@@ -398,7 +398,7 @@ module EphJcg
               + Math.cos(delta) * Math.sin(alpha) * Math.cos(eps)
       lambda /= Math.cos(delta) * Math.cos(alpha)
       lambda  = Math.atan(lambda) * 180 / PI
-      lambda += 180.0 if lambda < 0
+      lambda += 360.0 if lambda < 0
       return lambda
     end
 
