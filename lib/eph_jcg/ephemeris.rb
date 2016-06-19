@@ -398,8 +398,7 @@ module EphJcg
                + Math.cos(delta) * Math.sin(alpha) * Math.cos(eps)
       lambda_b = Math.cos(delta) * Math.cos(alpha)
       lambda = Math.atan2(lambda_a, lambda_b) * 180 / PI
-      while lambda <   0; lambda += 360; end
-      while lambda > 360; lambda -= 360; end
+      lambda += 360 if lambda < 0
       return lambda
     end
 
