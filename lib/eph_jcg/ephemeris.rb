@@ -394,11 +394,12 @@ module EphJcg
       alpha = alpha * 15 * PI / 180.0
       delta = delta      * PI / 180.0
       eps   = eps        * PI / 180.0
-      lambda  = Math.sin(delta) * Math.sin(eps) \
-              + Math.cos(delta) * Math.sin(alpha) * Math.cos(eps)
-      lambda /= Math.cos(delta) * Math.cos(alpha)
-      lambda  = Math.atan(lambda) * 180 / PI
-      lambda += 360.0 if lambda < 0
+      lambda_a = Math.sin(delta) * Math.sin(eps) \
+               + Math.cos(delta) * Math.sin(alpha) * Math.cos(eps)
+      lambda_b = Math.cos(delta) * Math.cos(alpha)
+      lambda = Math.atan2(lambda_a, lambda_b) * 180 / PI
+      while lambda <   0; lambda += 360; end
+      while lambda > 360; lambda -= 360; end
       return lambda
     end
 
