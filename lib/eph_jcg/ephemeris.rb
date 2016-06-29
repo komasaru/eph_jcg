@@ -317,8 +317,8 @@ module EphJcg
     def calc_theta(a, b, t)
       b = t if b < t  # 年末のΔT秒分も計算可能とするための応急処置
       theta = (2 * t - (a + b)) / (b - a).to_f
-      while  theta >  1.0; theta -= 1.0; end
-      while  theta < -1.0; theta += 1.0; end
+      theta =  1.0 if theta >  1.0
+      theta = -1.0 if theta < -1.0
       return Math.acos(theta) * 180 / PI
     end
 
