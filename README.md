@@ -7,24 +7,24 @@ This is the gem library which calculates ephemeris datas by JCG(Japan Coast Guar
 ### Computable imtes
 
 * Sun
-  - R.A.(= Right Ascension, Alpha)
-  - Dec.(= Declination, Delta)
-  - Dist.(= Distance)
-  - h(= Greenwich hour angle)
-  - S.D.(= Apparent Semidiameter)
-  - Lambda(= Ecliptic longitude)
-  - Beta(= Ecliptic latitude)
+  - R.A.(= Right Ascension, Alpha, Unit: h)
+  - Dec.(= Declination, Delta, Unit: °)
+  - Dist.(= Distance, Unit: AU)
+  - h(= Greenwich hour angle, Unit: h)
+  - S.D.(= Apparent Semidiameter, Unit: ′)
+  - Lambda(= Ecliptic longitude, Unit: °)
+  - Beta(= Ecliptic latitude, Unit: °)
 * Moon
-  - R.A.(= Right Ascension, Alpha)
-  - Dec.(= Declination, Delta)
-  - H.P.(= Horizontal Parallax)
-  - h(= Greenwich hour angle)
-  - S.D.(= Apparent Semidiameter)
-  - Lambda(= Ecliptic longitude)
-  - Beta(= Ecliptic latitude)
-* R
-* Epsilon(= Mean obliquity of the ecliptic)
-* Lambda difference between Sun and Moon
+  - R.A.(= Right Ascension, Alpha, Unit: h)
+  - Dec.(= Declination, Delta, Unit: °)
+  - H.P.(= Horizontal Parallax, Unit: °)
+  - h(= Greenwich hour angle, Unit: h)
+  - S.D.(= Apparent Semidiameter, Unit: ′)
+  - Lambda(= Ecliptic longitude, Unit: °)
+  - Beta(= Ecliptic latitude, Unit: °)
+* R (Unit: h)
+* Epsilon(= Mean obliquity of the ecliptic, Unit: °)
+* Lambda difference between Sun and Moon (Unit: °)
 
 ## Installation
 
