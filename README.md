@@ -4,7 +4,7 @@
 
 This is the gem library which calculates ephemeris datas by JCG(Japan Coast Guard) method.
 
-### Computable imtes
+### Computable items
 
 * Sun
   - R.A.(= Right Ascension, Alpha, Unit: h)
