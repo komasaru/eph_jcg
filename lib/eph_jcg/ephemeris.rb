@@ -291,7 +291,7 @@ module EphJcg
     def get_coeffs(div, year, t)
       a, b = 0, 0
       coeffs = Array.new
-      Object.const_get("EphJcg::#{div}").each do |row|
+      Object.const_get("EphJcg::#{div}").reverse.each do |row|
         next unless row[0] == year
         if row[1][0] <= t.to_i && t.to_i <= row[1][1]
           a, b   = row[1]
